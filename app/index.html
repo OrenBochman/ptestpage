@@ -1,0 +1,358 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Polymer Starter Kit">
+  <title>Perfectly Testable Landing Page</title>
+
+  <!-- Place favicon.ico in the `app/` directory -->
+
+  <!-- Chrome for Android theme color -->
+  <meta name="theme-color" content="#2E3AA1">
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Tile color for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="PSK">
+  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Perfectly Testable Landing Page">
+  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+  <!-- Tile icon for Win8 (144x144) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild-->
+
+  <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <!-- endbuild -->
+
+  <!-- Because this project uses vulcanize this should be your only html import
+       in this file. All other imports should go in elements.html -->
+  <link rel="import" href="elements/elements.html">
+
+  <!-- For shared styles, shared-styles.html import in elements.html -->
+  <style is="custom-style" include="shared-styles"></style>
+</head>
+
+<body unresolved>
+  <span id="browser-sync-binding"></span>
+  <template is="dom-bind" id="app">
+
+    <paper-drawer-panel id="paperDrawerPanel">
+      <!-- Drawer Scroll Header Panel -->
+      <paper-scroll-header-panel drawer fixed>
+
+        <!-- Drawer Toolbar -->
+        <paper-toolbar id="drawerToolbar">
+          <span class="menu-name">Menu</span>
+        </paper-toolbar>
+
+        <!-- Drawer Content -->
+        <paper-menu attr-for-selected="data-route" selected="[[route]]">
+          <a data-route="home" href="{{baseUrl}}">
+            <iron-icon icon="home"></iron-icon>
+            <span>Home</span>
+          </a>
+          <a data-route="users" href="{{baseUrl}}users">
+            <iron-icon icon="icons:account-circle"></iron-icon>
+            <span>Users</span>
+          </a>
+          <a data-route="blog" href="{{baseUrl}}blog">
+            <iron-icon icon="icons:book"></iron-icon>
+            <span>Blog</span>
+          </a>
+
+          <a data-route="about" href="{{baseUrl}}about">
+            <iron-icon icon="info"></iron-icon>
+            <span>About</span>
+          </a>
+
+          <a data-route="contact" href="{{baseUrl}}contact">
+            <iron-icon icon="mail"></iron-icon>
+            <span>Contact</span>
+          </a>
+
+          <a data-route="tickets" href="{{baseUrl}}tickets">
+            <iron-icon icon="mail"></iron-icon>
+            <span>Tickets</span>
+          </a>
+
+          <a data-route="stats" href="{{baseUrl}}stats">
+            <iron-icon icon="social:poll"></iron-icon>
+            <span>Stats</span>
+          </a>
+
+          <a data-route="license" href="{{baseUrl}}license">
+            <iron-icon icon="icons:verified-user"></iron-icon>
+            <span>License</span>
+          </a>
+
+          <a data-route="privacy" href="{{baseUrl}}privacy">
+            <iron-icon icon="icons:fingerprint"></iron-icon>
+            <span>Privacy Policy</span>
+          </a>
+        </paper-menu>
+      </paper-scroll-header-panel>
+
+      <!-- Main Area -->
+      <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header>
+        <!-- Main Toolbar -->
+        <paper-toolbar id="mainToolbar" class="tall">
+          <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+
+          <span class="space"></span>
+
+          <!-- Toolbar icons -->
+          <paper-icon-button icon="refresh"></paper-icon-button>
+          <paper-icon-button icon="search"></paper-icon-button>
+
+          <!-- Application name -->
+          <div class="middle middle-container">
+            <div class="app-name">Perfectly Testable Landing Page</div>
+          </div>
+
+          <!-- Application sub title -->
+          <div class="bottom bottom-container">
+            <div class="bottom-title">The future of the web today</div>
+          </div>
+        </paper-toolbar>
+
+        <!-- Main Content -->
+        <div class="content">
+          <iron-pages attr-for-selected="data-route" selected="{{route}}">
+            <section data-route="home">
+              <paper-material elevation="1">
+                <my-greeting></my-greeting>
+
+                <p class="subhead">You now have:</p>
+                <my-list></my-list>
+
+                <p>Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
+              </paper-material>
+              <paper-fab icon="add"></paper-fab>
+              <paper-material elevation="1">
+                <p>This is another card.</p>
+              </paper-material></section>
+
+            <section data-route="users">
+              <paper-material elevation="1">
+                <h2 class="page-title">Users</h2>
+                <p>This is the users section</p>
+                <a href$="{{baseUrl}}users/Addy">Addy</a><br>
+                <a href$="{{baseUrl}}users/Rob">Rob</a><br>
+                <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
+                <a href$="{{baseUrl}}users/Sam">Sam</a><br>
+                <a href$="{{baseUrl}}users/Oren">Oren</a>
+              </paper-material>
+            </section>
+
+            <section data-route="user-info">
+              <paper-material elevation="1">
+                <h2 class="page-title">User: {{params.name}}</h2>
+                <div>This is {{params.name}}'s section</div>
+              </paper-material>
+            </section>
+
+            <section data-route="blog">
+              <paper-material elevation="1">
+                <h2 class="page-title">Blogs</h2>
+                <p>These are the blog topics</p>
+                <a href$="{{baseUrl}}blog/Analytics">Analytics</a><br>
+                <a href$="{{baseUrl}}blog/Adwords">Adwords</a><br>
+                <a href$="{{baseUrl}}blog/SEO">SEO</a><br>
+                <a href$="{{baseUrl}}blog/Studio">Studio</a><br>
+                <a href$="{{baseUrl}}blog/News">News</a><br>
+              </paper-material>
+            </section>
+
+            <section data-route="blog-info">
+              <paper-material elevation="1">
+                <h2 class="page-title">Topic: {{params.topic}}</h2>
+                <div>This is the {{params.topic}}'s section</div>
+              </paper-material>
+            </section>
+
+            <section data-route="tickets">
+              <paper-material elevation="1">
+                <h2 class="page-title">Tickets</h2>
+                <p>This is the tickets section</p>
+
+                <paper-tabs selected='{{data.tabName}}' attr-for-selected='key'>
+                  <paper-tab key='bugs'>Bug</paper-tab>
+                  <paper-tab key='features'>Features</paper-tab>
+                  <paper-tab key='requests'>Requests!</paper-tab>
+                </paper-tabs>
+
+                <neon-animated-pages selected='{{data.tabName}}'
+                         attr-for-selected='key'
+                         entry-animation='slide-from-left-animation'
+                         exit-animation='slide-right-animation'>
+                  <neon-animatable key='bugs'>Bug Page Here</neon-animatable>
+                  <neon-animatable key='features'>Features Page Goes Here</neon-animatable>
+                  <neon-animatable key='requests'>Requests Page, the Best One of the Three</neon-animatable>
+                </neon-animated-pages>
+              </paper-material>
+            </section>
+
+            <section data-route="about">
+            <paper-material elevation="1">
+
+                <h2 class="page-title">About</h2>
+                <p>This is the about section</p>
+              </paper-material>
+            </section>
+
+
+
+
+            <section data-route="license">
+              <paper-material elevation="1">
+                <h1 class="page-title">License</h1>
+                <p>Everything in this repo is BSD style license unless otherwise specified.</p>
+                <p>Copyright (c) 2015 The Polymer Authors. All rights reserved.</p>
+                <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+                <ul>
+                  <li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+                  <li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
+                  <li>Neither the name of Google Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
+                </ul>
+                <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+              </paper-material>
+            </section>
+
+            <section data-route="privacy">
+              <paper-material elevation="1">
+                <h1 class="page-title">Privacy Policy</h1>
+  	    			  <p class="statement">Your privacy is important to us. At the Oroni Group we have a few fundamental principles:</p>
+                <ul>
+                  <li>We don&#8217;t ask you for personal information unless we truly need it.</li>
+                  <li>We don&#8217;t share your personal information with anyone except to comply with the law, develop our products, or protect our rights.</li>
+                  <li>We don&#8217;t store personal information on our servers unless required for the on-going operation of one of our services.</li>
+                </ul>
+                <p>Below is our privacy policy which incorporates these goals: (Note, we&#8217;ve decided to make this privacy policy available under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Sharealike</a> license, which means you&#8217;re more than welcome to steal it and repurpose it for your own use, just make sure to replace references to us with ones to you, and if you want we&#8217;d appreciate a link to Oroni Group.com somewhere on your site. We spent a lot of money and time on the below, and other people shouldn&#8217;t need to do the same.)</p>
+                <p>If you have questions about deleting or correcting your personal data please contact our <a href="http://en.support.wordpress.com/">support team</a>.</p>
+                <p>Oroni Group Inc. (“<strong>Oroni Group</strong>”) operates several websites including <a href="https://Oroni Group.com/">Oroni Group.com</a>. It is Oroni Group’s policy to respect your privacy regarding any information we may collect while operating our websites.</p>
+
+                <paper-material elevation="2">
+                  <h2>Website Visitors</h2>
+                  <p>Like most website operators, Oroni Group collects non-personally-identifying information of the sort that web browsers and servers typically make available, such as the browser type, language preference, referring site, and the date and time of each visitor request. Oroni Group&#8217;s purpose in collecting non-personally identifying information is to better understand how Oroni Group&#8217;s visitors use its website. From time to time, Oroni Group may release non-personally-identifying information in the aggregate, e.g., by publishing a report on trends in the usage of its website.</p>
+                  <p>Oroni Group also collects potentially personally-identifying information like Internet Protocol (IP) addresses for logged in users and for users leaving comments on WordPress.com blogs. Oroni Group only discloses logged in user and commenter IP addresses under the same circumstances that it uses and discloses personally-identifying information as described below, except that blog commenter IP addresses and email addresses are visible and disclosed to the administrators of the blog where the comment was left.</p></paper-material>
+
+                <paper-material elevation="2">
+                  <h2>Gathering of Personally-Identifying Information</h2>
+                  <p>Certain visitors to Oroni Group’s websites choose to interact with Oroni Group in ways that require Oroni Group to gather personally-identifying information. The amount and type of information that Oroni Group gathers depends on the nature of the interaction. For example, we ask visitors who sign up for a blog at <a href="http://wordpress.com/">WordPress.com</a> to provide a username and email address. Those who engage in transactions with Oroni Group – by purchasing access to the Akismet comment spam prevention service, for example – are asked to provide additional information, including as necessary the personal and financial information required to process those transactions. In each case, Oroni Group collects such information only insofar as is necessary or appropriate to fulfill the purpose of the visitor’s interaction with Oroni Group. Oroni Group does not disclose personally-identifying information other than as described below. And visitors can always refuse to supply personally-identifying information, with the caveat that it may prevent them from engaging in certain website-related activities.</p></paper-material>
+
+                <paper-material elevation="2">
+                  <h2>Aggregated Statistics</h2>
+                  <p>Oroni Group may collect statistics about the behavior of visitors to its websites. For instance, Oroni Group may monitor the most popular blogs on the WordPress.com site or use spam screened by the Akismet service to help identify spam. Oroni Group may display this information publicly or provide it to others. However, Oroni Group does not disclose personally-identifying information other than as described below.</p>
+                </paper-material>
+
+                <paper-material elevation="2">
+                  <h2>Protection of Certain Personally-Identifying Information</h2>
+                  <p>Oroni Group discloses potentially personally-identifying and personally-identifying information only to those of its employees, contractors and affiliated organizations that
+                    <ol>
+                      <li>need to know that information in order to process it on Oroni Group’s behalf or to provide services available at Oroni Group’s websites, and
+                      <li>that have agreed not to disclose it to others.
+                      </ol>
+                    Some of those employees, contractors and affiliated organizations may be located outside of your home country; by using Oroni Group’s websites, you consent to the transfer of such information to them. Oroni Group will not rent or sell potentially personally-identifying and personally-identifying information to anyone. Other than to its employees, contractors and affiliated organizations, as described above, Oroni Group discloses potentially personally-identifying and personally-identifying information only in response to a subpoena, court order or other governmental request, or when Oroni Group believes in good faith that disclosure is reasonably necessary to protect the property or rights of Oroni Group, third parties or the public at large. If you are a registered user of an Oroni Group website and have supplied your email address, Oroni Group may occasionally send you an email to tell you about new features, solicit your feedback, or just keep you up to date with what’s going on with Oroni Group and our products. We primarily use our various product blogs to communicate this type of information, so we expect to keep this type of email to a minimum. If you send us a request (for example via a support email or via one of our feedback mechanisms), we reserve the right to publish it in order to help us clarify or respond to your request or to help us support other users. Oroni Group takes all measures reasonably necessary to protect against the unauthorized access, use, alteration or destruction of potentially personally-identifying and personally-identifying information.</p>
+                </paper-material>
+
+                <paper-material elevation="2">
+                  <h2>Cookies</h2>
+                  <p>A cookie is a string of information that a website stores on a visitor’s computer, and that the visitor’s browser provides to the website each time the visitor returns. Oroni Group uses cookies to help Oroni Group identify and track visitors, their usage of Oroni Group website, and their website access preferences. Oroni Group visitors who do not wish to have cookies placed on their computers should set their browsers to refuse cookies before using Oroni Group’s websites, with the drawback that certain features of Oroni Group’s websites may not function properly without the aid of cookies.</p>
+                </paper-material>
+
+                <paper-material elevation="2">
+                  <h2>Business Transfers</h2>
+                  <p>If Oroni Group, or substantially all of its assets, were acquired, or in the unlikely event that Oroni Group goes out of business or enters bankruptcy, user information would be one of the assets that is transferred or acquired by a third party. You acknowledge that such transfers may occur, and that any acquirer of Oroni Group may continue to use your personal information as set forth in this policy.</p>
+                </paper-material>
+
+                <paper-material elevation="2">
+                  <h2>Ads</h2>
+                  <p>Ads appearing on any of our websites may be delivered to users by advertising partners, who may set cookies. These cookies allow the ad server to recognize your computer each time they send you an online advertisement to compile information about you or others who use your computer. This information allows ad networks to, among other things, deliver targeted advertisements that they believe will be of most interest to you. This Privacy Policy covers the use of cookies by Oroni Group and does not cover the use of cookies by any advertisers.</p>
+                </paper-material>
+
+                <paper-material elevation="2">
+                  <h2>Comments</h2>
+                  <p>Comments and other content submitted to our Akismet anti-spam service are not saved on our servers unless they were marked as false positives, in which case we store them long enough to use them to improve the service to avoid future false positives.</p>
+                </paper-material>
+
+                <paper-material elevation="2">
+                  <h2>Privacy Policy Changes</h2>
+                  <p>Although most changes are likely to be minor, Oroni Group may change its Privacy Policy from time to time, and in Oroni Group’s sole discretion. Oroni Group encourages visitors to frequently check this page for any changes to its Privacy Policy. If you have a WordPress.com account, you should also check your blog’s dashboard for alerts to these changes. Your continued use of this site after any change in this Privacy Policy will constitute your acceptance of such change.</p>
+
+                  <paper-material elevation="3">
+                    <p><strong>Change log:</strong></p>
+                      <ul>
+                        <li><em>February 18, 2015:</em> Updated Creative Commons license from 2.5 to 4.0</li>
+                      </ul>
+                    </paper-material>
+                  </paper-material>
+                </paper-material>
+            </section>
+
+            <section data-route="contact">
+              <paper-material elevation="1">
+                <h2 class="page-title">Contact</h2>
+                <p>This is the contact section</p>
+              </paper-material></section>
+
+          </iron-pages>
+        </div>
+      </paper-scroll-header-panel>
+    </paper-drawer-panel>
+
+    <paper-toast id="toast">
+      <span class="toast-hide-button" role="button" tabindex="0" onclick="app.$.toast.hide()">Ok</span>
+    </paper-toast>
+
+    <!-- Uncomment next block to enable Service Worker support (1/2) -->
+
+    <paper-toast id="caching-complete"
+                 duration="6000"
+                 text="Caching complete! This app will work offline.">
+    </paper-toast>
+
+    <platinum-sw-register auto-register
+                          clients-claim
+                          skip-waiting
+                          base-uri="bower_components/platinum-sw/bootstrap"
+                          on-service-worker-installed="displayInstalledToast">
+      <platinum-sw-cache default-cache-strategy="fastest"
+                         cache-config-file="cache-config.json">
+      </platinum-sw-cache>
+    </platinum-sw-register>
+
+  </template>
+
+  <!-- build:js scripts/app.js -->
+  <script src="scripts/app.js"></script>
+  <!-- endbuild-->
+</body>
+
+</html>
